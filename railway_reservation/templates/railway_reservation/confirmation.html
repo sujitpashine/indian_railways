@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Booking Confirmation</h1>
+    </header>
+
+    <div class="container">
+        <h2>Thank you, {{ reservation.passenger.name }}!</h2>
+        <p>Your booking has been successfully completed.</p>
+
+        <div class="confirmation-details">
+            <p><strong>Train:</strong> {{ reservation.train.name }} ({{ reservation.train.train_number }})</p>
+            <p><strong>From:</strong> {{ reservation.train.source }}</p>
+            <p><strong>To:</strong> {{ reservation.train.destination }}</p>
+            <p><strong>Departure:</strong> {{ reservation.train.departure_time }}</p>
+            <p><strong>Arrival:</strong> {{ reservation.train.arrival_time }}</p>
+            <p><strong>Seat Number:</strong> {{ reservation.seat_number }}</p>
+            <p><strong>Booking Time:</strong> {{ reservation.booking_time }}</p>
+            <p><strong>PNR Number:</strong> {{ reservation.pnr_number }}</p>
+        </div>
+
+        <a href="{% url 'home' %}" class="button">Back to Home</a>
+    </div>
+
+    <footer>
+        <p>© 2023 Indian Railways Reservation System</p>
+    </footer>
+</body>
+
+</html>

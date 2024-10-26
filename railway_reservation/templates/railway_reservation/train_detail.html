@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Train Details</title>
+</head>
+
+<body>
+    <h1>{{ train.name }} ({{ train.train_number }})</h1>
+    <p>From: {{ train.source }}</p>
+    <p>To: {{ train.destination }}</p>
+    <p>Departure: {{ train.departure_time }}</p>
+    <p>Arrival: {{ train.arrival_time }}</p>
+
+    <a href="{% url 'book_ticket' train.train_number %}">Book a ticket</a>
+</body>
+
+</html>

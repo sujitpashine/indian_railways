@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Book Your Ticket</h1>
+    </header>
+
+    <div class="container form-container">
+        <h2>{{ train.name }} ({{ train.train_number }})</h2>
+        <p>From: {{ train.source }}</p>
+        <p>To: {{ train.destination }}</p>
+        <p>Departure: {{ train.departure_time }}</p>
+        <p>Arrival: {{ train.arrival_time }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="seat_number">Seat Number:</label>
+            <input type="number" id="seat_number" name="seat_number" required>
+
+            <input type="submit" value="Book Ticket">
+        </form>
